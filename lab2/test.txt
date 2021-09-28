@@ -1,1 +1,3 @@
-
+﻿This directory consist my programms about turtle from http://cs.mipt.ru/python/lessons/lab2.html
+and
+http://cs.mipt.ru/python/lessons/lab3.html
