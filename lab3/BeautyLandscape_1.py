@@ -11,7 +11,9 @@ BLACK = (0,0,0)
 DARK_GREEN = (0,100,0)
 GREEN = (154,205,50)
 PURPLE = (238,130,238)
-sc.fill(GREEN)
+BLUE = (72,209,204)
+GREY = (128,128,128)
+sc.fill(BLUE)
 
 def flower(): #создаёт surface с цветочком
     sur = pygame.Surface((300,300),pygame.SRCALPHA) #pygame.SRCALPHA - для прозрачного фона
@@ -51,9 +53,9 @@ def leg():
     ellipse(sur,WHITE,(20,265,50,40))
     return sur
 
-def notunicorn(): #Неопознанное животное
+def notunicorn(): #создаёт surface с НХЖ(неопознанное ходячее животное)
     sur = pygame.Surface((500,500),pygame.SRCALPHA)
-    ellipse(sur,WHITE,(200,50,100,50))
+    ellipse(sur,WHITE,(200,50,80,50))
     ellipse(sur,WHITE,(200,80,50,150))
     ellipse(sur,WHITE,(0,200,260,120))
     sur.blit(pygame.transform.scale(leg(),(300,300)),(20,280))
@@ -69,7 +71,12 @@ def notunicorn(): #Неопознанное животное
     sur.blit(pygame.transform.rotate(sub,-30),(230,58))
     return sur
 
-sc.blit(notunicorn(),(200,200))
+polygon(sc,GREY,[(0,300),(0,1000),(800,1000),(800,50),(650,200),(600,150),(480,480),(250,150),(120,250),(60,100)])
+polygon(sc,BLACK,[(0,300),(0,1000),(800,1000),(800,50),(650,200),(600,150),(480,480),(250,150),(120,250),(60,100)],width=2)
+polygon(sc,GREEN,[(0,580),(0,1000),(800,1000),(800,650),(500,650),(500,550),(150,550)])
+polygon(sc,BLACK,[(0,580),(0,1000),(800,1000),(800,650),(500,650),(500,550),(150,550)],width=1)
+sc.blit(pygame.transform.scale(bush(),(300,300)),(530,690))
+sc.blit(pygame.transform.scale(notunicorn(),(300,300)),(100,500))
 
 pygame.display.update()
 clock = pygame.time.Clock()
